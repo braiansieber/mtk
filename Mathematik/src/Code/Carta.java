@@ -3,10 +3,8 @@ package Code;
 public class Carta
 {
 	Modelo modelo;
-	@SuppressWarnings("unused")
 	private int numero;
 	public int valor;
-	@SuppressWarnings("unused")
 	private String palo;
 	
 	public Carta( int numero, String palo, int valor) {
@@ -14,4 +12,14 @@ public class Carta
 		this.palo = palo;
 		this.valor = valor;
 	}
+	
+	public int getNumero(){
+		return numero;
+	}
+	
+	public String getPalo(){
+		return palo;
+	}
+	
+	
 }

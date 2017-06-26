@@ -6,15 +6,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Code.Modelo;
+import Code.Control;
 
 public class Test_Jugadores {
 
 	private Modelo	modelo;
-	
+	private Control control;
 	@Before
 	public void antesTest(){
 		
 		modelo = new Modelo(4, "Playadito");
+		control = new Control(modelo);
 	}
 	
 	@Test
@@ -24,9 +26,9 @@ public class Test_Jugadores {
 	}
 	
 	@Test
-	public void test_NombreMaquina2() {
-		System.out.println( modelo.jugador[2].Nombre);
+	public void test_NombreMaquina2() { 
 		assertEquals("Maquina1", modelo.jugador[2].Nombre); // Verifica cantidad jugadores
 		assertEquals(true, modelo.jugador[2].esMaquina()); // Verifica cantidad jugadores
 	}
-}
+  
+} 

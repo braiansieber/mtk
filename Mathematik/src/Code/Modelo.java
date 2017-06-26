@@ -7,7 +7,7 @@ public class Modelo{
 	private Carta carta[];
 	private int Nro_cartas=40;
 	private int CantJugadores, cartaActual;
-	private Random numRam;
+	public Random numRam;
 	public Jugador jugador[];
 	
 	public Modelo(int cantidad, String nombre) {
@@ -58,6 +58,8 @@ public class Modelo{
 	
 	public void Barajar(){
 		cartaActual = 0;
+		numRam = new Random();
+		
 		 
 		for ( int primera = 0; primera < carta.length; primera++ ){ 
 			int segunda = numRam.nextInt(Nro_cartas);
@@ -88,10 +90,7 @@ public class Modelo{
 	public void apostar(int i, int nroCartas, int apuesta) 
 	{
 		if (jugador[i].esMaquina()){
-			int valor = 0;
-			for (int j = 0; j < nroCartas; j++) {
-				valor = valor + jugador[i].valorRonda(i);
-			}
+			numRam = new Random();
 			int apuestin = numRam.nextInt(nroCartas);
 			jugador[i].apuesta(apuestin);
 		}
@@ -129,11 +128,5 @@ public class Modelo{
 		}
 	}
 	
-	public void Ronda(int ronda) {
-		if (ronda == CantJugadores){
-			ronda = 1;
-		}
-		else ronda++;
-	}
 	
 }

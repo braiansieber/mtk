@@ -2,14 +2,13 @@ package Principal;
 
 import Code.Control;
 import Code.Modelo;
-//import Code.View;
 
 public class main {
 	
 	public static void main(String[] args) {
 		Modelo modelo = new Modelo(4, "Jugador");
+		@SuppressWarnings("unused")
 		Control control = new Control(modelo);
-//		View vista = new View(control, modelo);
 	}
 
 }

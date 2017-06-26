@@ -19,11 +19,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
+@SuppressWarnings({ "unused", "serial" })
 public class View extends JFrame {
 	private JTable table;
 	private Modelo modelo;
 	private Control control;
-	private static int i = 0;
+	private int i = 0;
 	public View(final Control control, final Modelo modelo) {
 		
 		this.modelo = modelo;
@@ -53,9 +54,11 @@ public class View extends JFrame {
 				"Participante", "Apuesta", "Carta a Jugar", "Puntos"
 			}
 		) {
+			@SuppressWarnings("rawtypes")
 			Class[] columnTypes = new Class[] {
 				Object.class, Integer.class, String.class, Integer.class
 			};
+			@SuppressWarnings({ "rawtypes", "unchecked" })
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
@@ -318,12 +321,25 @@ public class View extends JFrame {
 		button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				control.terminaRonda(i);;
-				table.setValueAt(control.puntosJugador(0), 0, 3);
-				table.setValueAt(control.puntosJugador(1), 1, 3);
-				table.setValueAt(control.puntosJugador(2), 2, 3);
-				table.setValueAt(control.puntosJugador(3), 3, 3);
-				i++;
+				if(i<6)
+				{
+					control.terminaRonda(i);
+					table.setValueAt(control.puntosJugador(0), 0, 3);
+					table.setValueAt(control.puntosJugador(1), 1, 3);
+					table.setValueAt(control.puntosJugador(2), 2, 3);
+					table.setValueAt(control.puntosJugador(3), 3, 3);
+					i++;
+				}
+				else{
+					control.puntosTotal();
+					
+					table.setValueAt(control.puntosJugador(0), 0, 3);
+					table.setValueAt(control.puntosJugador(1), 1, 3);
+					table.setValueAt(control.puntosJugador(2), 2, 3);
+					table.setValueAt(control.puntosJugador(3), 3, 3);
+					i=0;
+					button_8.setLabel("Resetea...");
+				}
 			}
 		});
 		button_8.addActionListener(new ActionListener() {
@@ -337,7 +353,8 @@ public class View extends JFrame {
 		button_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				control.restart();;
+				
+				control.restart();
 				
 				table.setValueAt(null, 0, 1);
 				table.setValueAt(null, 1, 1);
@@ -353,8 +370,8 @@ public class View extends JFrame {
 				table.setValueAt(null, 1, 3);
 				table.setValueAt(null, 2, 3);
 				table.setValueAt(null, 3, 3);
-				
-				
+				textField.setText(null);
+				button_8.setLabel("Jugar mano");
 			}
 		});
 		button_9.setBounds(326, 227, 86, 23);

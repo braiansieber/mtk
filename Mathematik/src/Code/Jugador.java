@@ -31,6 +31,7 @@ public class Jugador {
 	
 	public void actualizaPuntos(int puntos){
 		puntosTotales = puntos;
+		puntoRonda = puntos;
 	}
 	
 	public void actualizaCartas( Carta carta, int nro ){	
@@ -38,7 +39,7 @@ public class Jugador {
 	}
 	
 	public void pointRonda(){
-		puntoRonda++;
+		puntoRonda = puntoRonda + 1;
 	}
 	
 	public void restartRonda() {
@@ -47,6 +48,7 @@ public class Jugador {
 	
 	public void restartTotal() {
 		puntosTotales = 0;
+		puntoRonda = 0;
 	}
 	
 	public int valorRonda(int i) {

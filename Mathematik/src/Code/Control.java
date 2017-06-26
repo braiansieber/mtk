@@ -43,7 +43,6 @@ public class Control implements ControlInterface {
 	
 	public void terminaRonda(int i){
 		modelo.ganaRonda(i);
-		modelo.terminaRonda();
 	}
 	
 	public int valorApuesta(int i){
@@ -51,6 +50,14 @@ public class Control implements ControlInterface {
 	}
 	
 	public int puntosJugador(int i){
+		return modelo.jugador[i].puntoRonda;
+	}
+	
+	public void puntosTotal(){
+		modelo.terminaRonda();
+	}
+	
+	public int puntosTotales(int i){
 		return modelo.jugador[i].puntosTotales;
 	}
 	

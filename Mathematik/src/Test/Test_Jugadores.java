@@ -1,0 +1,32 @@
+package Test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import Code.Modelo;
+
+public class Test_Jugadores {
+
+	private Modelo	modelo;
+	
+	@Before
+	public void antesTest(){
+		
+		modelo = new Modelo(4, "Playadito");
+	}
+	
+	@Test
+	public void test_NombreJugador() {
+		assertEquals("Playadito", modelo.jugador[0].Nombre); // Verifica cantidad jugadores
+		assertEquals(false, modelo.jugador[0].esMaquina()); // Verifica cantidad jugadores
+	}
+	
+	@Test
+	public void test_NombreMaquina2() {
+		System.out.println( modelo.jugador[2].Nombre);
+		assertEquals("Maquina1", modelo.jugador[2].Nombre); // Verifica cantidad jugadores
+		assertEquals(true, modelo.jugador[2].esMaquina()); // Verifica cantidad jugadores
+	}
+}

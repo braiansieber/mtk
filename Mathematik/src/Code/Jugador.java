@@ -1,14 +1,19 @@
 package Code;
 
-public class Jugador extends JugadorP {
+public class Jugador {
+	
+	public boolean Maquina;
+	public String Nombre;
+	public Carta carta[];
+	public int puntosTotales, apuesta, puntoRonda;
+	private static int j=-3;
 	
 	public Jugador(String nombre, boolean Maq) {
-		
 		Maquina = Maq;
 		if (Maquina == false) Nombre = nombre;
 		else {
-			Nombre = "Maquina" + i;
-			i++;
+			Nombre = "Maquina" + j;
+			j++;
 		}
 		puntosTotales = 0;
 		apuesta = 0;

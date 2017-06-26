@@ -2,15 +2,16 @@ package Code;
 
 public class Carta
 {
-	private int numero;
-	private String palo;
 	Modelo modelo;
+	@SuppressWarnings("unused")
+	private int numero;
 	public int valor;
+	@SuppressWarnings("unused")
+	private String palo;
 	
-	public Carta( int numeroCarta, String paloCarta) {
-		numero = numeroCarta;
-		palo = paloCarta;
-//		System.out.print(" nC: " + numeroCarta);
-		valor = modelo.get_Valor(numero, palo);
+	public Carta( int numero, String palo, int valor) {
+		this.numero = numero;
+		this.palo = palo;
+		this.valor = valor;
 	}
 }

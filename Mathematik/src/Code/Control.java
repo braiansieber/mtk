@@ -8,7 +8,7 @@ public class Control implements ControlInterface {
 	public Control(Modelo modelo){
 		this.modelo = modelo;
 	}
-
+	
 	public void MazodeCarta() {
 		modelo.HacerMazo();
 	}
@@ -21,10 +21,6 @@ public class Control implements ControlInterface {
 		modelo.Repartir(nroCartas);
 	}
 	
-//	public void add_Bet(int num){
-//		modelo.Apostar(num);
-//	}	
-	
 	public void set_Apostar(int apuesta, int nroCartas, int i){
 		modelo.apostar(i, nroCartas, apuesta); 
 	}
@@ -32,17 +28,5 @@ public class Control implements ControlInterface {
 	public void restart(){
 		modelo.RestartTotal();	
 	}
-
-//	public void initializar(){
-//		modelo.initialize();
-//	}
-	  
-//	public void Prender(){
-//		modelo.on();		
-//	}
- 
-//	public void Apagar(){
-//		modelo.off();
-//	}
 
 }

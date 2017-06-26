@@ -1,12 +1,16 @@
 package Code;
 
+import Code.View;
 
 public class Control implements ControlInterface {
 	
 	private Modelo modelo;
+	private View view;
 	
 	public Control(Modelo modelo){
 		this.modelo = modelo;
+		view = new View(this,this.modelo);
+		view.setVisible(true);
 	}
 	
 	public void MazodeCarta() {
